@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,23 +29,22 @@ public class StudentController {
 	}
 
 	@PostMapping("/students/{studentId}/courses")
-	public ResponseEntity<Void> registerStudentForCourse(
-			@PathVariable String studentId, @RequestBody Course newCourse) {
+	public ResponseEntity<Void> registerStudentForCourse(@PathVariable String studentId,
+			@RequestBody Course newCourse) {
 
 		Course course = studentService.addCourse(studentId, newCourse);
 
 		if (course == null)
 			return ResponseEntity.noContent().build();
 
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
-				"/{id}").buildAndExpand(course.getId()).toUri();
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(course.getId())
+				.toUri();
 
 		return ResponseEntity.created(location).build();
 	}
 
-	@GetMapping(produces="application/json", path= "/students/{studentId}/courses/{courseId}")
-	public Course retrieveDetailsForCourse(@PathVariable String studentId,
-			@PathVariable String courseId) {
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/students/{studentId}/courses/{courseId}")
+	public Course retrieveDetailsForCourse(@PathVariable String studentId, @PathVariable String courseId) {
 		return studentService.retrieveCourse(studentId, courseId);
 	}
 
