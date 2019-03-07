@@ -35,49 +35,41 @@ public class StudentControllerTest {
 	@MockBean
 	private StudentService studentService;
 
-	Course mockCourse = new Course("Course1", "Spring", "10 Steps", Arrays
-			.asList("Learn Maven", "Import Project", "First Example",
-					"Second Example"));
+	Course mockCourse = new Course("Course1", "Spring", "10 Steps",
+			Arrays.asList("Learn Maven", "Import Project", "First Example", "Second Example"));
 
 	String exampleCourseJson = "{\"name\":\"Spring\",\"description\":\"10 Steps\",\"steps\":[\"Learn Maven\",\"Import Project\",\"First Example\",\"Second Example\"]}";
 
 	@Test
 	public void retrieveDetailsForCourse() throws Exception {
 
-		Mockito.when(
-				studentService.retrieveCourse(Mockito.anyString(), Mockito
-						.anyString())).thenReturn(mockCourse);
+		Mockito.when(studentService.retrieveCourse(Mockito.anyString(), Mockito.anyString())).thenReturn(mockCourse);
 
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
-				"/students/Student1/courses/Course1").accept(
-				MediaType.APPLICATION_JSON);
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/students/Student1/courses/Course1")
+				.accept(MediaType.APPLICATION_JSON);
 
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
 		System.out.println(result.getResponse());
-		String expected = "{id:Course1,name:Spring,description:10 Steps}";
+		String expected = "{\"id\":\"Course1\",\"name\":\"Spring\",\"description\":\"10 Steps\",\"steps\":[\"Learn Maven\",\"Import Project\",\"First Example\",\"Second Example\"]}";
 
-		//{"id":"Course1","name":"Spring","description":"10 Steps, 25 Examples and 10K Students","steps":["Learn Maven","Import Project","First Example","Second Example"]}
-
-		JSONAssert.assertEquals(expected, result.getResponse()
-				.getContentAsString(), false);
+		// {"id":"Course1","name":"Spring","description":"10 Steps, 25 Examples and 10K
+		// Students","steps":["Learn Maven","Import Project","First Example","Second
+		// Example"]}
+		System.out.println("ZZZZZ =" + result.getResponse().getContentAsString());
+		JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
 	}
 
 	@Test
 	public void createStudentCourse() throws Exception {
-		Course mockCourse = new Course("1", "Smallest Number", "1", Arrays
-				.asList("1", "2", "3", "4"));
+		Course mockCourse = new Course("1", "Smallest Number", "1", Arrays.asList("1", "2", "3", "4"));
 
-		//studentService.addCourse to respond back with mockCourse
-		Mockito.when(
-				studentService.addCourse(Mockito.anyString(), Mockito
-						.any(Course.class))).thenReturn(mockCourse);
+		// studentService.addCourse to respond back with mockCourse
+		Mockito.when(studentService.addCourse(Mockito.anyString(), Mockito.any(Course.class))).thenReturn(mockCourse);
 
-		//Send course as body to /students/Student1/courses
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.post(
-				"/students/Student1/courses")
-				.accept(MediaType.APPLICATION_JSON).content(exampleCourseJson)
-				.contentType(MediaType.APPLICATION_JSON);
+		// Send course as body to /students/Student1/courses
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/students/Student1/courses")
+				.accept(MediaType.APPLICATION_JSON).content(exampleCourseJson).contentType(MediaType.APPLICATION_JSON);
 
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
@@ -85,8 +77,7 @@ public class StudentControllerTest {
 
 		assertEquals(HttpStatus.CREATED.value(), response.getStatus());
 
-		assertEquals("http://localhost/students/Student1/courses/1", response
-				.getHeader(HttpHeaders.LOCATION));
+		assertEquals("http://localhost/students/Student1/courses/1", response.getHeader(HttpHeaders.LOCATION));
 
 	}
 
