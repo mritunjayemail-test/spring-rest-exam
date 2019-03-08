@@ -21,7 +21,10 @@ import org.springframework.transaction.TransactionStatus;
  */
 public class GDValueBean implements Serializable {
 
-	private static final long serialVersionUID = -8125782857461129205L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * This is the transaction status map, which will contain the transaction
 	 * status of all the data services participating in the transaction.
@@ -31,22 +34,6 @@ public class GDValueBean implements Serializable {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
-
-		/*
-		 * Class clazz = this.getClass(); StringBuffer sb = new StringBuffer();
-		 * try { sb.append(clazz.getName()); sb.append("[");
-		 * java.lang.reflect.Method[] getters = clazz.getDeclaredMethods();
-		 * java.lang.reflect.Method getter = null; String fname = null; boolean
-		 * first = true; for (int i = 0; i < getters.length; i++) { try { getter
-		 * = getters[i]; fname = getter.getName(); if (fname.startsWith("get")
-		 * || fname.startsWith("is")) { if (!first) sb.append(", "); else first
-		 * = false; if (fname.startsWith("get")) sb.append(fname.substring(3));
-		 * else sb.append(fname.substring(2)); sb.append("=" +
-		 * getter.invoke(this, null)); } } catch (Throwable it) {
-		 * sb.append("Error invoking method: " + fname); } } sb.append("]"); }
-		 * catch (Throwable t) { sb.append("Error creating toString for Bean: "
-		 * + clazz); } return sb.toString();
-		 */
 	}
 
 	/**

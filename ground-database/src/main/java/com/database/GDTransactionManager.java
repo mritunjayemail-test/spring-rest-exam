@@ -26,7 +26,7 @@ public class GDTransactionManager {
 	public void createTransaction(Map<String, TransactionStatus> txnStatusMap) {
 
 		DefaultTransactionDefinition td = null;
-		TransactionStatus transactionStatus = null;
+	    TransactionStatus transactionStatus = null;
 
 		// put the transaction status for each data service in the txnStatusMap
 		// the first transaction should will have the propagation as

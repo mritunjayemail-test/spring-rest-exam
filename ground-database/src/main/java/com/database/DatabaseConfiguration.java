@@ -39,9 +39,6 @@ public class DatabaseConfiguration {
 		return transactionManager;
 	}
 
-	@Bean
-	public ExportsJDBC_BS exportsJDBC_BS() {
-		return new ExportsJDBC_BS();
-	}
+	
 
 }

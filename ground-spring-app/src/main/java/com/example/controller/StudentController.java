@@ -4,8 +4,6 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.database.ExportService;
 import com.database.ExportsIPBean;
-import com.database.ExportsJDBC_BS;
 import com.database.ExportsOPBean;
 import com.database.GDException;
-import com.database.Something;
 import com.example.model.Course;
 import com.example.service.StudentService;
 
@@ -30,8 +27,7 @@ public class StudentController {
 	private StudentService studentService;
 	
     @Autowired
-//	@Qualifier("exportsJDBC_BS")
-	private ExportsJDBC_BS exportsJDBC_BS;
+	private ExportService exportsJDBC_BS;
 
 	@GetMapping("/students/{studentId}/courses")
 	public List<Course> retrieveCoursesForStudent(@PathVariable String studentId) {

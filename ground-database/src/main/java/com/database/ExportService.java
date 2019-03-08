@@ -1,5 +1,5 @@
 package com.database;
 
-public interface Something {
+public interface ExportService {
 	public ExportsOPBean getLoginList(ExportsIPBean exportsInputValueBean) throws GDException;
 }
