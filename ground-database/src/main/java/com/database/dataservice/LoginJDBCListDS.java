@@ -8,7 +8,7 @@
  * it only in accordance with the terms of  the license agreement
  * you entered into with American Express.
  */
-package com.database;
+package com.database.dataservice;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +17,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
+import com.database.ExportsIPBean;
+import com.database.ExportsOPBean;
+import com.database.GDValueBean;
 import com.database.core.GDException;
 import com.database.core.GDJDBCAbstractDataService;
 import com.database.core.GDTransactionManager;

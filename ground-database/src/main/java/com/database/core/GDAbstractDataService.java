@@ -1,4 +1,6 @@
-package com.database;
+package com.database.core;
+
+import com.database.GDValueBean;
 
 public abstract class GDAbstractDataService {
 

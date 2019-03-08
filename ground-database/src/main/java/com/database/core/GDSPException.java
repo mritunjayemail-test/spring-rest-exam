@@ -1,4 +1,4 @@
-package com.database;
+package com.database.core;
 
 public class GDSPException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

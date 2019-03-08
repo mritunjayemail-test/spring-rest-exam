@@ -1,4 +1,4 @@
-package com.database;
+package com.database.core;
 import java.sql.Types;
 
 public class GDDAOHelper {
