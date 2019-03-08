@@ -25,9 +25,7 @@
                         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
       
      <!-- Spring Bean defination are defined under these xmls -->   
-     <context:annotation-config />
-     
-     <import resource="spring-database.xml"/>
+      <import resource="spring-database.xml"/>
      <!--  
      <import resource="spring-mvc-sevlet.xml"/>
       -->
