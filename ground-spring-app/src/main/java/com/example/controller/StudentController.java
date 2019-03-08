@@ -61,14 +61,14 @@ public class StudentController {
 	}
 	
 	@GetMapping("/hello1")
-	public String retrieveCoursesForStudent() throws GDException {
+	public ExportsOPBean retrieveCoursesForStudent() throws GDException {
 		System.out.println("Hellooooooooooooo");
 		ExportsIPBean bean = new ExportsIPBean();
 		bean.setExportReqtId("1");
 		System.out.println("KKKKK="+exportsJDBC_BS);
 		ExportsOPBean res =exportsJDBC_BS.getLoginList(bean);
 		System.out.println(res);
-		return "Hello";
+		return res;
 	}
 
 	
