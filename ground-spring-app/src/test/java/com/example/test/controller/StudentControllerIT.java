@@ -43,7 +43,7 @@ public class StudentControllerIT {
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 	}
 
-	@Test
+	//@Test
 	public void testRetrieveStudentCourse() {
 
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
@@ -63,7 +63,7 @@ public class StudentControllerIT {
 	//	}
 	}
 
-	@Test
+	//@Test
 	public void addCourse() {
 
 		Course course = new Course("Course1", "Spring", "10 Steps", Arrays
