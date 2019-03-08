@@ -24,38 +24,7 @@
                         http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool-3.0.xsd
                         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
       
-   <bean id="daoFactory" class="com.database.GDDAOHelper"></bean>
-   <bean id="VARCHAR" factory-bean="daoFactory" factory-method="convertType">
-		<constructor-arg value="VARCHAR" />
-	</bean>
 	
-	<bean id="loginJDBCListDS" class="com.database.LoginJDBCListDS">
-		<property name="bipBatchGenericDAO" ref="loginJDBCListDS.Param" />
-	</bean>
-	  
-	  
-	    <bean id="loginJDBCListDS.Param" class="com.database.core.GDSimpleJdbcCallImpl">
-		<constructor-arg index="0" ref="dataSource" />
-		<constructor-arg index="1" value="userlogin1" />
-		<constructor-arg index="2">
-			<list>
-			     <ref bean="PRODUCT_ID"/>
-		    </list>
-		</constructor-arg>
-		<constructor-arg index="3" value="loginResultSet" />
-		<constructor-arg index="4" ref="actorRowMapper"></constructor-arg>
-	  </bean>
-	
-	<bean id="PRODUCT_ID" class="org.springframework.jdbc.core.SqlParameter">
-			<constructor-arg value="PRODUCT_ID" />
-			<constructor-arg ref="INTEGER" />
-			<constructor-arg value="INTEGER" />
-	</bean>
-	
-	 <bean id="INTEGER" factory-bean="daoFactory" factory-method="convertType">
-		<constructor-arg value="INTEGER" />
-	</bean>
-	
-	<bean id="exportsJDBC_BS" class="com.database.ExportsJDBC_BS"/>
+	<bean id="actorRowMapper"  class="com.database.mapper.ActorRowMapper" />
       
 </beans>

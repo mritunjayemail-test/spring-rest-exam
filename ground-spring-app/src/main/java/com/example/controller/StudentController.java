@@ -16,7 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.database.ExportService;
 import com.database.ExportsIPBean;
 import com.database.ExportsOPBean;
-import com.database.GDException;
+import com.database.core.GDException;
 import com.example.model.Course;
 import com.example.service.StudentService;
 

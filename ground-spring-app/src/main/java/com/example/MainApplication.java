@@ -10,9 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration(exclude = { SecurityAutoConfiguration.class, ManagementWebSecurityAutoConfiguration.class })
 @ComponentScan({ "com.database", "com.example" })
 @SpringBootApplication
-public class StudentApplication {
+public class MainApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 }

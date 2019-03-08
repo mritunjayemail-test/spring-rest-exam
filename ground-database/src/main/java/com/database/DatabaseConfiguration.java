@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import com.database.core.GDTransactionManager;
+
 @Configuration
 @EnableCaching
 @EnableAspectJAutoProxy

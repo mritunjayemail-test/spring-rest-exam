@@ -12,6 +12,8 @@ package com.database;
 
 import java.util.List;
 
+import com.database.core.ResultStatus;
+
 public class ExportsOPBean extends GDValueBean {
 
 	private static final long serialVersionUID = 1L;

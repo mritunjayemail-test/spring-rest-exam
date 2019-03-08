@@ -26,6 +26,7 @@
       
      <!-- Spring Bean defination are defined under these xmls -->   
       <import resource="spring-database.xml"/>
+      <import resource="spring-mapper.xml"/>
      <!--  
      <import resource="spring-mvc-sevlet.xml"/>
       -->

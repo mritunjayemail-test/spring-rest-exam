@@ -3,6 +3,9 @@ package com.database;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.database.core.GDException;
+import com.database.core.GDJDBCAbstractBusinessService;
+
 public class ExportsJDBC_BS extends GDJDBCAbstractBusinessService implements ExportService {
 
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());

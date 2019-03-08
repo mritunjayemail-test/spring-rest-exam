@@ -1,4 +1,4 @@
-package com.database;
+package com.database.core;
 
 public enum ResultStatus {
 
