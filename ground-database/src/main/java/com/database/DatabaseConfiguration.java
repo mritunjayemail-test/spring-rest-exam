@@ -19,7 +19,7 @@ public class DatabaseConfiguration {
 	@Profile("dev")
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		driverManagerDataSource.setUrl("jdbc:mysql://ashupost.cvkqavmqhnef.eu-west-1.rds.amazonaws.comr:3306/ashupost");
 		driverManagerDataSource.setUsername("ashupost");
 		driverManagerDataSource.setPassword("ashupost");
@@ -37,7 +37,7 @@ public class DatabaseConfiguration {
 	@Profile("prod")
 	public DriverManagerDataSource dataSourceProd() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		driverManagerDataSource.setUrl("jdbc:mysql://ashupost.cvkqavmqhnef.eu-west-1.rds.amazonaws.com:3306/ashupost");
 		driverManagerDataSource.setUsername("ashupost");
 		driverManagerDataSource.setPassword("ashupost");
