@@ -14,7 +14,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 public class GDTransactionManager {
 
 	@SuppressWarnings("unused")
-	private final static String CLASS_NAME = "com.ground.dao.jdbc.GDTransactionManager";
+	private final static String CLASS_NAME = "com.database.core.GDTransactionManager";
 
 	private PlatformTransactionManager transactionManager;
 

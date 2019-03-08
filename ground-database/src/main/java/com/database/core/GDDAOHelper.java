@@ -1,4 +1,5 @@
 package com.database.core;
+
 import java.sql.Types;
 
 public class GDDAOHelper {
@@ -16,9 +17,8 @@ public class GDDAOHelper {
 	public static final String TYPE_BIGINT = "BIGINT";
 
 	/**
-	 * @param type
-	 *            String describing Sql type of the input/output parameter
-	 * @return integer consntant from Types class representing that Sql type
+	 * @param type String describing Sql type of the input/output parameter
+	 * @return integer constant from Types class representing that SQL type.
 	 */
 	public int convertType(String type) {
 

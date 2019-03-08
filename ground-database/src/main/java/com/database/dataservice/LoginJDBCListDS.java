@@ -1,9 +1,9 @@
 /*
  * ExportsListDS.java
  *
- * Copyright 2008 by American Express, Inc., All rights reserved.
+ * Copyright 2018 by Ground, Inc., All rights reserved.
  * This software is the confidential and proprietary information
- * of American Express, Inc. ("Confidential Information").  You
+ * of Ground, Inc. ("Confidential Information").  You
  * shall not disclose such Confidential Information and shall use
  * it only in accordance with the terms of  the license agreement
  * you entered into with American Express.
@@ -28,7 +28,7 @@ import com.database.core.ResultStatus;
 public class LoginJDBCListDS extends GDJDBCAbstractDataService {
 
 	@Autowired
-	GDTransactionManager gdTxManager;
+	private GDTransactionManager gdTxManager;
 
 	public Object execute(GDValueBean inputBean) throws GDException {
 		@SuppressWarnings("unused")
@@ -49,6 +49,7 @@ public class LoginJDBCListDS extends GDJDBCAbstractDataService {
 			exportsOutputValueBean.setResult(ResultStatus.SUCCESS);
 			exportsOutputValueBean.setError(false);
 			exportsOutputValueBean.setStatus(1);
+			
 			gdTxManager.commitTransaction(inputBean.getTxnStatusMap());
 		} catch (DataAccessException bipDae) {
 			gdTxManager.rollbackTransaction(inputBean.getTxnStatusMap());

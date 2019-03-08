@@ -13,8 +13,7 @@ import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
-	@SuppressWarnings("unused")
-	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass().getName());
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
 	private String returnResultSet;
 
@@ -32,11 +31,8 @@ public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 		super.setFunction(false);
 		super.withProcedureName(spName);
 		setReturnResultSet(returnResultSet);
-		// final String information = "SP["+ spName +"]  paramList = " +
-		// getInParameterNames();
-		// logger.debug(information);
-		// logger.info(information);
-		// System.out.println(information);
+		
+		LOG.info("SP : {} : paramList : {}",spName, getInParameterNames());
 
 		// setSql(spName);
 		// Iterate through parameter list to declare input and output parameters
@@ -50,14 +46,18 @@ public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 		super.checkCompiled();
 	}
 
-	public GDSimpleJdbcCallImpl(DataSource dataSource, String spName, List<?> paramList, String returnResultSet, RowMapper<?> rowMapper) {
+	public GDSimpleJdbcCallImpl(DataSource dataSource, String spName, List<?> paramList, String returnResultSet,
+			RowMapper<?> rowMapper) {
 
 		super(dataSource);
 		super.setFunction(false);
 		super.withProcedureName(spName);
 		super.returningResultSet(returnResultSet, rowMapper);
 		setReturnResultSet(returnResultSet);
-		// final String information = "SP["+ spName +"]  paramList = " +
+		
+		LOG.info("SP : {} : paramList : {}",spName, getInParameterNames());
+
+		// final String information = "SP["+ spName +"] paramList = " +
 		// getInParameterNames();
 		// logger.debug(information);
 		// logger.info(information);
@@ -76,17 +76,16 @@ public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 
 	/**
 	 * Execute the stored procedure. Subclasses should define a strongly typed
-	 * execute method (with a meaningful name) that invokes this method,
-	 * populating the input map and extracting typed values from the output map.
-	 * Subclass execute methods will often take domain objects as arguments and
-	 * return values. Alternatively, they can return void.
+	 * execute method (with a meaningful name) that invokes this method, populating
+	 * the input map and extracting typed values from the output map. Subclass
+	 * execute methods will often take domain objects as arguments and return
+	 * values. Alternatively, they can return void.
 	 * 
-	 * @param inParams
-	 *            map of input parameters, keyed by name as in parameter
-	 *            declarations. Output parameters need not (but can be) included
-	 *            in this map. It is legal for map entries to be
-	 *            <code>null, and this will produce the
-	 * correct behavior using a NULL argument to the stored procedure.
+	 * @param inParams map of input parameters, keyed by name as in parameter
+	 *                 declarations. Output parameters need not (but can be)
+	 *                 included in this map. It is legal for map entries to be
+	 *                 <code>null, and this will produce the correct behavior using
+	 *                 a NULL argument to the stored procedure.
 	 * @return map of output params, keyed by name as in parameter declarations.
 	 *         Output parameters will appear here, with their values after the
 	 *         stored procedure has been called.

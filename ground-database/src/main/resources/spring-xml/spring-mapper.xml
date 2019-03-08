@@ -25,6 +25,6 @@
                         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
       
 	
-	<bean id="actorRowMapper"  class="com.database.mapper.ActorRowMapper" />
+	<bean id="actorRowMapper" class="com.database.mapper.ActorRowMapper" />
       
 </beans>

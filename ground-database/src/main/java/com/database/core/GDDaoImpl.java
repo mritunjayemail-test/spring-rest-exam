@@ -5,11 +5,14 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.StoredProcedure;
 
 public class GDDaoImpl extends StoredProcedure {
+
 
 	public GDDaoImpl(DataSource dataSource, String spName, List<?> paramList) {
 		super();
