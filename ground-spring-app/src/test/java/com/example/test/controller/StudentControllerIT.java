@@ -63,7 +63,7 @@ public class StudentControllerIT {
 	//	}
 	}
 
-	//@Test
+	@Test
 	public void addCourse() {
 
 		Course course = new Course("Course1", "Spring", "10 Steps", Arrays
