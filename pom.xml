@@ -6,8 +6,28 @@
 	<groupId>com.example.mritunjay</groupId>
 	<artifactId>spring-rest-exam</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<description>spring-rest-exam - Main</description>
 	<packaging>pom</packaging>
+
+	<name>Ground Application Parent Build</name>
+	<description>Ground Application Parent Build</description>
+	<url>http://projects.spring.io/spring-boot/</url>
+	<organization>
+		<name>Ground Software, Inc.</name>
+		<url>http://www.ground.com</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>mritunjay</id>
+			<name>Mritunjay Kumar</name>
+			<email>mritunjayemail@gmail.com</email>
+			<organization>Open for Java Application and Looking for Good Job</organization>
+			<organizationUrl>http://www.ground.com</organizationUrl>
+			<roles>
+				<role>Java Application Developer</role>
+			</roles>
+			<timezone>0</timezone>
+		</developer>
+	</developers>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
