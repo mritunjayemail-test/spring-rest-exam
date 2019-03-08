@@ -72,7 +72,7 @@ public class StudentControllerTest {
 		// Students","steps":["Learn Maven","Import Project","First Example","Second
 		// Example"]}
 		System.out.println("ZZZZZ =" + result.getResponse().getContentAsString());
-		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+		JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
 	}
 
 	@Test
