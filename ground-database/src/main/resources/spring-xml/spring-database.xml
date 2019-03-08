@@ -57,7 +57,7 @@
 	</bean>
 	
 	<bean id="actorRowMapper"  class="com.database.ActorRowMapper" />
-	<!-- 
-	<bean id="exportsJDBC_BS" class="com.ground.service.database.jdbc.ExportsJDBC_BS"/>
-     --> 
+	
+	<bean id="exportsJDBC_BS" class="com.database.ExportsJDBC_BS"/>
+      
 </beans>

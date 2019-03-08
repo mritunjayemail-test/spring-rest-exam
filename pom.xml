@@ -20,8 +20,8 @@
 
 	<modules>
 		<module>ground-spring-app</module>
-		<!-- 
+		
 		<module>ground-database</module>
-		 -->
+		 
 	</modules>
 </project>
