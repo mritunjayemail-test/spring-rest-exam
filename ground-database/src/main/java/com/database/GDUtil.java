@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 public class GDUtil {
 
+	@SuppressWarnings("unused")
 	private final static String CLASS_NAME = "com.ground.common.util.GDUtil";
 	private final static Logger logger = LoggerFactory.getLogger("com.ground.common.util.GDUtil");
 
