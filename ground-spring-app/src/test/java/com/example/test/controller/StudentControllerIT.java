@@ -77,12 +77,15 @@ public class StudentControllerIT {
 				HttpMethod.POST, entity, String.class);
 
 		String actual = response.getHeaders().get(HttpHeaders.LOCATION).get(0);
+		
+		
 
 		assertTrue(actual.contains("/students/Student1/courses/"));
 
 	}
 
 	private String createURLWithPort(String uri) {
+		System.out.println("XXXXXXX="+"http://localhost:" + port + uri);
 		return "http://localhost:" + port + uri;
 	}
 
