@@ -43,7 +43,7 @@ public class StudentControllerIT {
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 	}
 
-	//@Test
+	@Test
 	public void testRetrieveStudentCourse() {
 
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);

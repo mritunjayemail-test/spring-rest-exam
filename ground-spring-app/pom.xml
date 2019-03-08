@@ -10,10 +10,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../../spring-rest-exam/pom.xml</relativePath>
 	</parent>
-	
-	
-	
-		<dependencies>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -66,12 +64,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-				<artifactId>ground-databse</artifactId>
-		        <groupId>com.example.mritunjay</groupId>
-		       	<version>0.0.1-SNAPSHOT</version>
+			<artifactId>ground-databse</artifactId>
+			<groupId>com.example.mritunjay</groupId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
-		
+
+
 	</dependencies>
 
 
@@ -83,6 +81,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 
 </project>
