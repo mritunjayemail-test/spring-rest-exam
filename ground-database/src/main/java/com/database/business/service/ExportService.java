@@ -1,5 +1,7 @@
-package com.database;
+package com.database.business.service;
 
+import com.database.ExportsIPBean;
+import com.database.ExportsOPBean;
 import com.database.core.GDException;
 
 public interface ExportService {

@@ -1,8 +1,10 @@
-package com.database;
+package com.database.business.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.database.ExportsIPBean;
+import com.database.ExportsOPBean;
 import com.database.core.GDException;
 import com.database.core.GDJDBCAbstractBusinessService;
 

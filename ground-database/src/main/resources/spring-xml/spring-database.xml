@@ -56,6 +56,6 @@
 		<constructor-arg value="INTEGER" />
 	</bean>
 	
-	<bean id="exportsJDBC_BS" class="com.database.ExportsJDBC_BS"/>
+	<bean id="exportsJDBC_BS" class="com.database.business.service.ExportsJDBC_BS"/>
       
 </beans>
