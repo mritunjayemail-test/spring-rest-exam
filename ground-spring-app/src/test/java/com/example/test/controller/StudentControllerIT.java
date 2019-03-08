@@ -23,7 +23,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.StudentApplication;
 import com.example.model.Course;
 
-@SuppressWarnings("deprecation")
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = StudentApplication.class,
 		webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
