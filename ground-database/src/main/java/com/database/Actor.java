@@ -1,7 +1,8 @@
 package com.database;
 
+import java.io.Serializable;
 
-public class Actor extends GDValueBean {
+public class Actor implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String loginid;

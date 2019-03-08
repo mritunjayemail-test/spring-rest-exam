@@ -18,13 +18,13 @@ public class ExportsOPBean extends GDValueBean {
 	private Integer status;
 	private boolean error;
 	private List<?> exportsOPBeanList;
-	private String result;
+	private ResultStatus result;
 
-	public String getResult() {
+	public ResultStatus getResult() {
 		return result;
 	}
 
-	public void setResult(String result) {
+	public void setResult(ResultStatus result) {
 		this.result = result;
 	}
 

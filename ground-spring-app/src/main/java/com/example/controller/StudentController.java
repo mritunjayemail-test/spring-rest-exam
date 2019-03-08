@@ -60,7 +60,7 @@ public class StudentController {
 		return studentService.retrieveCourse(studentId, courseId);
 	}
 	
-	@GetMapping("/hello1")
+	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ExportsOPBean retrieveCoursesForStudent() throws GDException {
 		System.out.println("Hellooooooooooooo");
 		ExportsIPBean bean = new ExportsIPBean();

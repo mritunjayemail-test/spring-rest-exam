@@ -26,7 +26,7 @@ public class GDValueBean implements Serializable {
 	 * This is the transaction status map, which will contain the transaction
 	 * status of all the data services participating in the transaction.
 	 */
-	public Map<String, TransactionStatus> txnStatusMap = new LinkedHashMap<String, TransactionStatus>();
+	private Map<String, TransactionStatus> txnStatusMap = new LinkedHashMap<String, TransactionStatus>();
 
 	@Override
 	public String toString() {
