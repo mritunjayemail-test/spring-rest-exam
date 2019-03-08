@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration(exclude = { SecurityAutoConfiguration.class })
-@ComponentScan({"com.database","com.example"})
+@ComponentScan({ "com.database", "com.example" })
 @SpringBootApplication
 public class StudentApplication {
 

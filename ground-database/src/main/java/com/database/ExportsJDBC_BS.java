@@ -1,12 +1,11 @@
 package com.database;
 
-import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Service
 public class ExportsJDBC_BS extends GDJDBCAbstractBusinessService implements ExportService {
 
-	@SuppressWarnings("unused")
-	private final static String CLASS_NAME = "com.ground.dao.jdbc.ExportsJDBC_BS";
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
 	public ExportsOPBean getLoginList(ExportsIPBean exportsInputValueBean) throws GDException {
 		@SuppressWarnings("unused")
@@ -14,22 +13,13 @@ public class ExportsJDBC_BS extends GDJDBCAbstractBusinessService implements Exp
 		ExportsOPBean exportOutputValueBean = null;
 		try {
 			exportsInputValueBean.setUniqueId("1");
-
-			System.out.println("MMMMMMMMMMMMMMMMMMMMMMM");
-			System.out.println("MMMMMMMMMMMMMMMMMMMMMMM");
-			System.out.println("MMMMMMMMMMMMMMMMMMMMMMM");
-			System.out.println("MMMMMMMMMMMMMMMMMMMMMMM");
-			System.out.println("MMMMMMMMMMMMMMMMMMMMMMM");
-			System.out.println("MMMMMMMMMMMMMMMMMMMMMMM");
 			exportOutputValueBean = (ExportsOPBean) getJDBCDataService("loginJDBCListDS", exportsInputValueBean);
+			LOG.info(exportOutputValueBean.toString());
 			System.out.println(exportOutputValueBean);
 			return exportOutputValueBean;
 		} catch (Throwable e) {
 			throw new GDException();
 		}
-
-		// @Autowired
-		// @Q//ualifier("personA")
 
 	}
 }
