@@ -57,14 +57,6 @@ public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 		
 		LOG.info("SP : {} : paramList : {}",spName, getInParameterNames());
 
-		// final String information = "SP["+ spName +"] paramList = " +
-		// getInParameterNames();
-		// logger.debug(information);
-		// logger.info(information);
-		// System.out.println(information);
-		// setSql(spName);
-		// Iterate through parameter list to declare input and output parameters
-		// required by this Stored Procedure
 		int paramListSize = paramList.size();
 		for (int i = 0; i < paramListSize; i++) {
 			// declareParameter((SqlParameter) paramList.get(i));
