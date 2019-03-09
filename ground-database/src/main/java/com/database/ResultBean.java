@@ -11,16 +11,28 @@
 package com.database;
 
 import java.util.List;
+import java.util.Map;
 
 import com.database.core.ResultStatus;
 
-public class ExportsOPBean extends GDValueBean {
+public class ResultBean extends GDValueBean {
 
 	private static final long serialVersionUID = 1L;
 	private Integer status;
 	private boolean error;
-	private List<?> exportsOPBeanList;
+	private List<?> resultList;
 	private ResultStatus result;
+	private Map<String, Object> resultMap;
+	
+	
+
+	public Map<String, Object> getResultMap() {
+		return resultMap;
+	}
+
+	public void setResultMap(Map<String, Object> resultMap) {
+		this.resultMap = resultMap;
+	}
 
 	public ResultStatus getResult() {
 		return result;
@@ -55,11 +67,11 @@ public class ExportsOPBean extends GDValueBean {
 		error = b;
 	}
 
-	public List<?> getExportsOPBeanList() {
-		return exportsOPBeanList;
+	public List<?> getResultList() {
+		return resultList;
 	}
 
-	public void setExportsOPBeanList(List<?> exportsOPBeanList) {
-		this.exportsOPBeanList = exportsOPBeanList;
+	public void setResultList(List<?> resultList) {
+		this.resultList = resultList;
 	}
 }

@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
 import com.database.ExportsIPBean;
-import com.database.ExportsOPBean;
+import com.database.ResultBean;
 import com.database.GDValueBean;
 import com.database.core.GDException;
 import com.database.core.GDJDBCAbstractDataService;
@@ -35,7 +35,7 @@ public class LoginJDBCListDS extends GDJDBCAbstractDataService {
 		final String METHOD_NAME = "execute";
 		@SuppressWarnings("unused")
 		ExportsIPBean exportsInputValueBean = null;
-		ExportsOPBean exportsOutputValueBean = null;
+		ResultBean exportsOutputValueBean = null;
 		// GDTransactionManager bipTransactionManager = (GDTransactionManager)
 		// GDApplicationContextManager.getBean("gdTxManager");
 		gdTxManager.createTransaction(inputBean.getTxnStatusMap());
@@ -43,9 +43,10 @@ public class LoginJDBCListDS extends GDJDBCAbstractDataService {
 		try {
 			exportsInputValueBean = (ExportsIPBean) inputBean;
 			Map<String, ?> inputMap = new HashMap<String, Object>(0);
-			Map<String, ?> outputMap = bipBatchGenericDAO.execute(inputMap);
-			exportsOutputValueBean = new ExportsOPBean();
-			exportsOutputValueBean.setExportsOPBeanList((List<?>) outputMap.get(bipBatchGenericDAO.getReturnResultSet()));
+			Map<String, Object> outputMap = bipBatchGenericDAO.execute(inputMap);
+			exportsOutputValueBean = new ResultBean();
+			//exportsOutputValueBean.setResultMap(outputMap);
+			exportsOutputValueBean.setResultList((List<?>) outputMap.get(bipBatchGenericDAO.getReturnResultSet()));
 			exportsOutputValueBean.setResult(ResultStatus.SUCCESS);
 			exportsOutputValueBean.setError(false);
 			exportsOutputValueBean.setStatus(1);

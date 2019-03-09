@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.database.ExportsIPBean;
-import com.database.ExportsOPBean;
+import com.database.ResultBean;
 import com.database.business.service.ExportService;
 import com.database.core.GDException;
 import com.example.model.Course;
@@ -63,19 +63,19 @@ public class StudentController {
 	
 	
 	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ExportsOPBean retrieveCoursesForStudent() throws GDException {
+	public ResultBean retrieveCoursesForStudent() throws GDException {
 		System.out.println("Hellooooooooooooo");
 		ExportsIPBean bean = new ExportsIPBean();
 		bean.setExportReqtId("1");
 		System.out.println("KKKKK="+exportsJDBC_BS);
-		ExportsOPBean res =exportsJDBC_BS.getLoginList(bean);
+		ResultBean res =exportsJDBC_BS.getLoginList(bean);
 		return res;
 	}
 
 	@GetMapping(path="/hello2", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String getPassword() throws GDException {
+	public ResultBean getPassword() throws GDException {
 		ExportsIPBean bean1 = new ExportsIPBean();
-		String name =exportsJDBC_BS.getUserPassword(bean1);
+		ResultBean name =exportsJDBC_BS.getUserPassword(bean1);
 		return name;
 	}
 

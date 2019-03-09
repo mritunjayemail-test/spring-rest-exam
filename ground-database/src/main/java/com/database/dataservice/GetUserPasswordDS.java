@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
 import com.database.ExportsIPBean;
-import com.database.ExportsOPBean;
+import com.database.ResultBean;
 import com.database.GDValueBean;
 import com.database.core.GDException;
 import com.database.core.GDJDBCAbstractDataService;
@@ -35,7 +35,7 @@ public class GetUserPasswordDS extends GDJDBCAbstractDataService {
 		final String METHOD_NAME = "execute";
 		@SuppressWarnings("unused")
 		ExportsIPBean exportsInputValueBean = null;
-		String result = null;
+		ResultBean result = null;
 		// GDTransactionManager bipTransactionManager = (GDTransactionManager)
 		// GDApplicationContextManager.getBean("gdTxManager");
 		gdTxManager.createTransaction(inputBean.getTxnStatusMap());
@@ -44,12 +44,13 @@ public class GetUserPasswordDS extends GDJDBCAbstractDataService {
 			exportsInputValueBean = (ExportsIPBean) inputBean;
 			Map<String, Object> inputMap = new HashMap<String, Object>();
 			inputMap.put("userid", "mritunjayemail");
-			Map<String, ?> outputMap = bipBatchGenericDAO.execute(inputMap);
-			//exportsOutputValueBean = new ExportsOPBean();
-			 result = (String)  outputMap.get(bipBatchGenericDAO.getReturnResultSet());
-			System.out.println("OUTPUT ======== "+ result);
-			//exportsOutputValueBean.setExportsOPBeanList((List<?>) outputMap.get(bipBatchGenericDAO.getReturnResultSet()));
+			result = new ResultBean();
+			result.setResultMap(bipBatchGenericDAO.execute(inputMap));
+			result.setResult(ResultStatus.SUCCESS);
+			result.setError(false);
+			result.setStatus(1);
 			
+
 			gdTxManager.commitTransaction(inputBean.getTxnStatusMap());
 		} catch (DataAccessException bipDae) {
 			gdTxManager.rollbackTransaction(inputBean.getTxnStatusMap());

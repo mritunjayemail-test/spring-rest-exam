@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.database.ExportsIPBean;
-import com.database.ExportsOPBean;
+import com.database.ResultBean;
 import com.database.core.GDException;
 import com.database.core.GDJDBCAbstractBusinessService;
 
@@ -15,11 +15,11 @@ public class ExportServiceImpl extends GDJDBCAbstractBusinessService implements 
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
 	@Override
-	public ExportsOPBean getLoginList(ExportsIPBean exportsInputValueBean) throws GDException {
-		ExportsOPBean exportOutputValueBean = null;
+	public ResultBean getLoginList(ExportsIPBean exportsInputValueBean) throws GDException {
+		ResultBean exportOutputValueBean = null;
 		try {
 			exportsInputValueBean.setUniqueId("1");
-			exportOutputValueBean = (ExportsOPBean) getJDBCDataService("loginJDBCListDS", exportsInputValueBean);
+			exportOutputValueBean = (ResultBean) getJDBCDataService("loginJDBCListDS", exportsInputValueBean);
 			LOG.info("login list : {}",exportOutputValueBean.toString());
 			return exportOutputValueBean;
 		} catch (Throwable e) {
@@ -28,11 +28,11 @@ public class ExportServiceImpl extends GDJDBCAbstractBusinessService implements 
 	}
 
 	@Override
-	public String getUserPassword(ExportsIPBean exportsInputValueBean) throws GDException {
-		String exportOutputValueBean = null;
+	public ResultBean getUserPassword(ExportsIPBean exportsInputValueBean) throws GDException {
+		ResultBean exportOutputValueBean = null;
 		try {
 			//exportsInputValueBean.setUniqueId("1");
-			exportOutputValueBean = (String) getJDBCDataService("GetUserPasswordDS", exportsInputValueBean);
+			exportOutputValueBean = (ResultBean) getJDBCDataService("GetUserPasswordDS", exportsInputValueBean);
 			LOG.info("login list : {}",exportOutputValueBean.toString());
 			return exportOutputValueBean;
 		} catch (Throwable e) {
