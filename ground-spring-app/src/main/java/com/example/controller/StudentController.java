@@ -62,7 +62,7 @@ public class StudentController {
 
 	
 	
-	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE, headers="Accept=*/*")
+	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ExportsOPBean retrieveCoursesForStudent() throws GDException {
 		System.out.println("Hellooooooooooooo");
 		ExportsIPBean bean = new ExportsIPBean();
