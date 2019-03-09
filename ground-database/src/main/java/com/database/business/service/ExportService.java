@@ -6,4 +6,6 @@ import com.database.core.GDException;
 
 public interface ExportService {
 	public ExportsOPBean getLoginList(ExportsIPBean exportsInputValueBean) throws GDException;
+	
+	public String getUserPassword(ExportsIPBean exportsInputValueBean) throws GDException;
 }

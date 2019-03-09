@@ -69,10 +69,17 @@ public class StudentController {
 		bean.setExportReqtId("1");
 		System.out.println("KKKKK="+exportsJDBC_BS);
 		ExportsOPBean res =exportsJDBC_BS.getLoginList(bean);
-		System.out.println(res);
 		return res;
 	}
 
+	@GetMapping(path="/hello2", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getPassword() throws GDException {
+		ExportsIPBean bean1 = new ExportsIPBean();
+		String name =exportsJDBC_BS.getUserPassword(bean1);
+		return name;
+	}
+
+	
 	
 	
 

@@ -14,11 +14,25 @@ public class ExportServiceImpl extends GDJDBCAbstractBusinessService implements 
 
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
+	@Override
 	public ExportsOPBean getLoginList(ExportsIPBean exportsInputValueBean) throws GDException {
 		ExportsOPBean exportOutputValueBean = null;
 		try {
 			exportsInputValueBean.setUniqueId("1");
 			exportOutputValueBean = (ExportsOPBean) getJDBCDataService("loginJDBCListDS", exportsInputValueBean);
+			LOG.info("login list : {}",exportOutputValueBean.toString());
+			return exportOutputValueBean;
+		} catch (Throwable e) {
+			throw new GDException(e);
+		}
+	}
+
+	@Override
+	public String getUserPassword(ExportsIPBean exportsInputValueBean) throws GDException {
+		String exportOutputValueBean = null;
+		try {
+			//exportsInputValueBean.setUniqueId("1");
+			exportOutputValueBean = (String) getJDBCDataService("GetUserPasswordDS", exportsInputValueBean);
 			LOG.info("login list : {}",exportOutputValueBean.toString());
 			return exportOutputValueBean;
 		} catch (Throwable e) {

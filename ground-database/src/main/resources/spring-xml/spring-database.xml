@@ -30,10 +30,27 @@
 		<constructor-arg value="VARCHAR" />
 	</bean>
 
-	<bean id="loginJDBCListDS"
-		class="com.database.dataservice.LoginJDBCListDS">
+	<bean id="loginJDBCListDS" class="com.database.dataservice.LoginJDBCListDS">
 		<property name="bipBatchGenericDAO"
 			ref="loginJDBCListDS.Param" />
+	</bean>
+	
+	<bean id="GetUserPasswordDS" class="com.database.dataservice.GetUserPasswordDS">
+		<property name="bipBatchGenericDAO"
+			ref="GetUserPasswordDS.Param" />
+	</bean>
+
+<bean id="GetUserPasswordDS.Param"
+		class="com.database.core.GDSimpleJdbcCallImpl">
+		<constructor-arg index="0" ref="dataSource" />
+		<constructor-arg index="1" value="userlogin" />
+		<constructor-arg index="2">
+			<list>
+				<ref bean="userID" />
+			</list>
+		</constructor-arg>
+		<constructor-arg index="3" value="resultCode" />
+	
 	</bean>
 
 
@@ -50,11 +67,24 @@
 		<constructor-arg index="4" ref="actorRowMapper"></constructor-arg>
 	</bean>
 
+	<bean id="userID"
+		class="org.springframework.jdbc.core.SqlParameter">
+		<constructor-arg value="userID" />
+		<constructor-arg ref="VARCHAR" />
+		<constructor-arg value="VARCHAR" />
+	</bean>
+
 	<bean id="PRODUCT_ID"
 		class="org.springframework.jdbc.core.SqlParameter">
 		<constructor-arg value="PRODUCT_ID" />
 		<constructor-arg ref="INTEGER" />
 		<constructor-arg value="INTEGER" />
+	</bean>
+	
+	<bean id="resultCode"
+		class="org.springframework.jdbc.core.SqlOutParameter">
+		<constructor-arg value="resultCode" />
+		<constructor-arg ref="VARCHAR" />
 	</bean>
 
 	<bean id="INTEGER" factory-bean="daoFactory"
