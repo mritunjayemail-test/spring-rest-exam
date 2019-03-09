@@ -22,7 +22,7 @@ public class ExportServiceImpl extends GDJDBCAbstractBusinessService implements 
 			LOG.info("login list : {}",exportOutputValueBean.toString());
 			return exportOutputValueBean;
 		} catch (Throwable e) {
-			throw new GDException();
+			throw new GDException(e);
 		}
 	}
 }
