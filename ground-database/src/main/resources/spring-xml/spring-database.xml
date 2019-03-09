@@ -24,23 +24,21 @@
                         http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool-3.0.xsd
                         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<bean id="daoFactory" class="com.database.core.GDDAOHelper"></bean>
-	<bean id="VARCHAR" factory-bean="daoFactory"
-		factory-method="convertType">
-		<constructor-arg value="VARCHAR" />
-	</bean>
 
-	<bean id="loginJDBCListDS" class="com.database.dataservice.LoginJDBCListDS">
+
+	<bean id="loginJDBCListDS"
+		class="com.database.dataservice.LoginJDBCListDS">
 		<property name="bipBatchGenericDAO"
 			ref="loginJDBCListDS.Param" />
 	</bean>
-	
-	<bean id="GetUserPasswordDS" class="com.database.dataservice.GetUserPasswordDS">
+
+	<bean id="GetUserPasswordDS"
+		class="com.database.dataservice.GetUserPasswordDS">
 		<property name="bipBatchGenericDAO"
 			ref="GetUserPasswordDS.Param" />
 	</bean>
 
-<bean id="GetUserPasswordDS.Param"
+	<bean id="GetUserPasswordDS.Param"
 		class="com.database.core.GDSimpleJdbcCallImpl">
 		<constructor-arg index="0" ref="dataSource" />
 		<constructor-arg index="1" value="userlogin" />
@@ -49,10 +47,13 @@
 				<ref bean="userID" />
 			</list>
 		</constructor-arg>
-		<constructor-arg index="3" value="resultCode" />
-	
+		<constructor-arg index="3">
+			<array value-type="java.lang.String">
+				<value>resultCode</value>
+				<value>resultStatus</value>
+			</array>
+		</constructor-arg>
 	</bean>
-
 
 	<bean id="loginJDBCListDS.Param"
 		class="com.database.core.GDSimpleJdbcCallImpl">
@@ -65,6 +66,10 @@
 		</constructor-arg>
 		<constructor-arg index="3" value="loginResultSet" />
 		<constructor-arg index="4" ref="actorRowMapper"></constructor-arg>
+		<constructor-arg index="5">
+			<array value-type="java.lang.String">
+			</array>
+		</constructor-arg>
 	</bean>
 
 	<bean id="userID"
@@ -80,16 +85,19 @@
 		<constructor-arg ref="INTEGER" />
 		<constructor-arg value="INTEGER" />
 	</bean>
-	
+
 	<bean id="resultCode"
 		class="org.springframework.jdbc.core.SqlOutParameter">
 		<constructor-arg value="resultCode" />
 		<constructor-arg ref="VARCHAR" />
 	</bean>
 
-	<bean id="INTEGER" factory-bean="daoFactory"
-		factory-method="convertType">
-		<constructor-arg value="INTEGER" />
+	<bean id="resultStatus"
+		class="org.springframework.jdbc.core.SqlOutParameter">
+		<constructor-arg value="resultStatus" />
+		<constructor-arg ref="VARCHAR" />
 	</bean>
+
+	
 
 </beans>

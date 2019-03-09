@@ -16,6 +16,7 @@ public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
 	private String returnResultSet;
+	private String[] returnOutputs;
 
 	public String getReturnResultSet() {
 		return returnResultSet;
@@ -25,47 +26,41 @@ public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 		this.returnResultSet = returnResultSet;
 	}
 
-	public GDSimpleJdbcCallImpl(DataSource dataSource, String spName, List<?> paramList, String returnResultSet) {
+	public String[] getReturnOutputs() {
+		return returnOutputs;
+	}
+
+	public void setReturnOutputs(String[] returnOutputs) {
+		this.returnOutputs = returnOutputs;
+	}
+
+	public GDSimpleJdbcCallImpl(DataSource dataSource, String spName, List<?> paramList, String... returnOutputs) {
 
 		super(dataSource);
 		super.setFunction(false);
 		super.withProcedureName(spName);
-		setReturnResultSet(returnResultSet);
-		
-		LOG.info("SP : {} : paramList : {}",spName, getInParameterNames());
-
-		// setSql(spName);
-		// Iterate through parameter list to declare input and output parameters
-		// required by this Stored Procedure
-		int paramListSize = paramList.size();
-		for (int i = 0; i < paramListSize; i++) {
-			// declareParameter((SqlParameter) paramList.get(i));
-			// declareParameters((SqlParameter) paramList.get(i));
+		setReturnOutputs(returnOutputs);
+		for (int i = 0; i < paramList.size(); i++) {
 			super.addDeclaredParameter((SqlParameter) paramList.get(i));
 		}
 		super.checkCompiled();
+		LOG.info("SP : {} : paramList : {}", spName, super.getInParameterNames());
 	}
 
 	public GDSimpleJdbcCallImpl(DataSource dataSource, String spName, List<?> paramList, String returnResultSet,
-			RowMapper<?> rowMapper) {
+			RowMapper<?> rowMapper, String... returnOutputs) {
 
 		super(dataSource);
 		super.setFunction(false);
 		super.withProcedureName(spName);
 		super.returningResultSet(returnResultSet, rowMapper);
-	
-		
+		setReturnOutputs(returnOutputs);
 		setReturnResultSet(returnResultSet);
-		
-		LOG.info("SP : {} : paramList : {}",spName, getInParameterNames());
-
-		int paramListSize = paramList.size();
-		for (int i = 0; i < paramListSize; i++) {
-			// declareParameter((SqlParameter) paramList.get(i));
-			// declareParameters((SqlParameter) paramList.get(i));
+		for (int i = 0; i < paramList.size(); i++) {
 			super.addDeclaredParameter((SqlParameter) paramList.get(i));
 		}
 		super.checkCompiled();
+		LOG.info("SP : {} : paramList : {}", spName, super.getInParameterNames());
 	}
 
 	/**
