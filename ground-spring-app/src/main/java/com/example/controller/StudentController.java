@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,10 +36,7 @@ public class StudentController {
 	}
 
 	@PostMapping("/students/{studentId}/courses")
-	public ResponseEntity<Void> registerStudentForCourse(@PathVariable String studentId,
-			@RequestBody Course newCourse) throws GDException {
-
-		
+	public ResponseEntity<Void> registerStudentForCourse(@PathVariable String studentId, @RequestBody Course newCourse) throws GDException {
 	
 		Course course = studentService.addCourse(studentId, newCourse);
 
@@ -56,7 +54,15 @@ public class StudentController {
 		return studentService.retrieveCourse(studentId, courseId);
 	}
 	
-	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE)
+	
+	@PostMapping(path="/putExample/{id}", produces = MediaType.APPLICATION_JSON_VALUE, headers="Accept=*/*")
+	public ResponseEntity<Course>  putRequest(@PathVariable String id, @RequestBody Course newCourse) throws GDException {
+		return ResponseEntity.status(HttpStatus.OK).body(newCourse);
+	}
+
+	
+	
+	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE, headers="Accept=*/*")
 	public ExportsOPBean retrieveCoursesForStudent() throws GDException {
 		System.out.println("Hellooooooooooooo");
 		ExportsIPBean bean = new ExportsIPBean();
