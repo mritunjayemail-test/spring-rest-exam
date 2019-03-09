@@ -55,14 +55,14 @@ public class StudentController {
 	}
 	
 	
-	@PostMapping(path="/putExample/{id}", produces = MediaType.APPLICATION_JSON_VALUE, headers="Accept=*/*")
+	@PostMapping(path="/putExample/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Course>  putRequest(@PathVariable String id, @RequestBody Course newCourse) throws GDException {
 		return ResponseEntity.status(HttpStatus.OK).body(newCourse);
 	}
 
 	
 	
-	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE, headers="Accept=*/*")
+	@GetMapping(path="/hello1", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ExportsOPBean retrieveCoursesForStudent() throws GDException {
 		System.out.println("Hellooooooooooooo");
 		ExportsIPBean bean = new ExportsIPBean();
