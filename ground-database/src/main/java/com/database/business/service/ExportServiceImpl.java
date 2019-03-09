@@ -31,7 +31,6 @@ public class ExportServiceImpl extends GDJDBCAbstractBusinessService implements 
 	public ResultBean getUserPassword(ExportsIPBean exportsInputValueBean) throws GDException {
 		ResultBean exportOutputValueBean = null;
 		try {
-			//exportsInputValueBean.setUniqueId("1");
 			exportOutputValueBean = (ResultBean) getJDBCDataService("GetUserPasswordDS", exportsInputValueBean);
 			LOG.info("login list : {}",exportOutputValueBean.toString());
 			return exportOutputValueBean;
