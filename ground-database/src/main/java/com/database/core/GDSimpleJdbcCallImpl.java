@@ -15,17 +15,17 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
-	private String[] returnResultSet;
+	private String returnResultSet;
 
-	public String[] getReturnResultSet() {
+	public String getReturnResultSet() {
 		return returnResultSet;
 	}
 
-	public void setReturnResultSet(String... returnResultSet) {
+	public void setReturnResultSet(String returnResultSet) {
 		this.returnResultSet = returnResultSet;
 	}
 
-	public GDSimpleJdbcCallImpl(DataSource dataSource, String spName, List<?> paramList, String... returnResultSet) {
+	public GDSimpleJdbcCallImpl(DataSource dataSource, String spName, List<?> paramList, String returnResultSet) {
 
 		super(dataSource);
 		super.setFunction(false);
@@ -53,6 +53,8 @@ public class GDSimpleJdbcCallImpl extends SimpleJdbcCall {
 		super.setFunction(false);
 		super.withProcedureName(spName);
 		super.returningResultSet(returnResultSet, rowMapper);
+	
+		
 		setReturnResultSet(returnResultSet);
 		
 		LOG.info("SP : {} : paramList : {}",spName, getInParameterNames());
