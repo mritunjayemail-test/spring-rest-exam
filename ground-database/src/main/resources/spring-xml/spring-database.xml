@@ -41,7 +41,7 @@
 	<bean id="GetUserPasswordDS.Param"
 		class="com.database.core.GDSimpleJdbcCallImpl">
 		<constructor-arg index="0" ref="dataSource" />
-		<constructor-arg index="1" value="userlogin" />
+		<constructor-arg index="1" type="java.lang.String" value="userlogin" />
 		<constructor-arg index="2">
 			<list>
 				<ref bean="userID" />
@@ -57,8 +57,8 @@
 
 	<bean id="loginJDBCListDS.Param"
 		class="com.database.core.GDSimpleJdbcCallImpl">
-		<constructor-arg index="0" ref="dataSource" />
-		<constructor-arg index="1" value="userlogin1" />
+		<constructor-arg index="0" type="javax.sql.DataSource" ref="dataSource" />
+		<constructor-arg index="1" type="java.lang.String" value="userlogin1" />
 		<constructor-arg index="2">
 			<list>
 				<ref bean="PRODUCT_ID" />

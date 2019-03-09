@@ -36,6 +36,7 @@
 	</bean>
 	<bean id="VARCHAR" factory-bean="daoFactory"
 		factory-method="convertType">
+		
 		<constructor-arg value="VARCHAR" />
 	</bean>
 
